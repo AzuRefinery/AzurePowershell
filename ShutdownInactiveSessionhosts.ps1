@@ -37,7 +37,7 @@ Foreach ($hostpool in $all_hostpools)
                     if (($vmpowerstate.PowerState -like "VM running") ){
                         $vmrg = Get-AzResource | Select-Object Name,ResourceGroupName | Where-Object {$_.name -like $shutdowntarget}
                         Write-output "Deallocating VM: $shutdowntarget"
-                        Stop-AzVM -Name $shutdowntarget -ResourceGroupName $vmrg.ResourceGroupName -Force -nowait -whatif
+                        Stop-AzVM -Name $shutdowntarget -ResourceGroupName $vmrg.ResourceGroupName -Force -nowait
                     }
                 }             
             }
